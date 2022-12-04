@@ -43,8 +43,5 @@ let fullOverlaps = sectionAssignmentPairs |> Array.map (fun (leftSection: string
 let partialOverlaps = sectionAssignmentPairs |> Array.map (fun (leftSection: string, rightSection: string) ->
     compareSections2 leftSection rightSection)
 
-let boringPredicate (value: bool) = 
-    value
-
-printfn "Fully overlapping pairs: %d" (Array.filter boringPredicate <| fullOverlaps).Length
-printfn "At least partially overlapping pairs: %d" (Array.filter boringPredicate <| partialOverlaps).Length
+printfn "Fully overlapping pairs: %d" (Array.filter id <| fullOverlaps).Length
+printfn "At least partially overlapping pairs: %d" (Array.filter id <| partialOverlaps).Length
